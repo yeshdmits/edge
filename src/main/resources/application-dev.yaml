@@ -1,0 +1,34 @@
+spring:
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/test
+    username: ${DB_USER:admin}
+    password: ${DB_PASS:admin}
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${EMAIL_USER:reply@domain}
+    password: ${EMAIL_PASS:secret}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${OAUTH_URL:https://localhost:8081/auth/realms/yeshenko-personal}
+          client-secret: ${JWT_SECRET}
+swagger-ui:
+  config:
+    open-id-connect-uri: ${OAUTH_URL:https://localhost:8081/auth/realms/yeshenko-personal}/.well-known/openid-configuration
+core:
+  url: ${CORE_URL:http://localhost:8082}

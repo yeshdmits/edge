@@ -1,0 +1,39 @@
+version: "3.3"
+services:
+  core:
+    image: "core:latest"
+    container_name: "core"
+    ports:
+      - "8082:8080"
+    depends_on:
+      - mongodb
+  mongodb:
+    image: "mongo:5.0.7"
+    container_name: "mongodb"
+    ports:
+      - "27017:27017"
+  edge:
+    image: "edge:latest"
+    container_name: "edge"
+    ports:
+      - "8080:8080"
+    environment:
+      - DB_URL=jdbc:postgresql://postgresql:5432/edge
+      - DB_USER=root
+      - DB_PASS=passwd
+      - EMAIL_USER=
+      - EMAIL_PASS=
+      - CORE_URL=http://core:8082/api
+      - OAUTH_URL=https://localhost:8081/auth/realms/yeshenko-personal
+    depends_on:
+      - postgresql
+      - core
+  postgresql:
+    image: "postgres:14"
+    container_name: "postgresql"
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=passwd
+      - POSTGRES_DB=edge

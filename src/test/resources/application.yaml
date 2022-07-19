@@ -1,0 +1,24 @@
+spring:
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://172.17.0.2:5432/edge
+    username: root
+    password: passwd
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        enable_lazy_load_no_trans: true
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: lenovonix.example@gmail.com
+    password: Passw0rd654123
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true

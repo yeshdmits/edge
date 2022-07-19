@@ -1,0 +1,27 @@
+[
+  {
+    "serialNumber": "ID1",
+    "model": "MOD1",
+    "description": "Some Description"
+  },
+  {
+    "serialNumber": "ID2",
+    "model": "Z2XQ",
+    "description": "Some Description"
+  },
+  {
+    "serialNumber": "ID3",
+    "model": "MOD1",
+    "description": "Some Description"
+  },
+  {
+    "serialNumber": "ID4",
+    "model": "MOD1",
+    "description": "Some Description"
+  },
+  {
+    "serialNumber": "ID5",
+    "model": "Z2XQ",
+    "description": "Some Description"
+  }
+]
